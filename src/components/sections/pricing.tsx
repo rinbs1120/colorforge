@@ -50,8 +50,8 @@ const plans = [
     price: 0,
     originalPrice: null,
     priceNote: '/mo',
-    pageLabel: '2 credits',
-    features: { pages: true, styles: true, reference: false, png: true, pdf: false, watermark: false, commercial: false, merch: false, transparent: false } as Record<FeatureKey, boolean>,
+    pageLabel: '5 credits',
+    features: { pages: true, styles: true, reference: false, png: true, pdf: false, watermark: false, commercial: true, merch: false, transparent: false } as Record<FeatureKey, boolean>,
     buttonText: 'Get Started',
     buttonStyle: 'outline' as const,
     href: '/generate',
@@ -63,8 +63,8 @@ const plans = [
     price: 4.99,
     originalPrice: isLaunchPromo ? 6.99 : null,
     priceNote: '/mo',
-    pageLabel: '60 credits',
-    features: { pages: true, styles: true, reference: true, png: true, pdf: false, watermark: true, commercial: false, merch: true, transparent: false } as Record<FeatureKey, boolean>,
+    pageLabel: '100 credits',
+    features: { pages: true, styles: true, reference: true, png: true, pdf: true, watermark: true, commercial: true, merch: true, transparent: false } as Record<FeatureKey, boolean>,
     buttonText: 'Subscribe',
     buttonStyle: 'filled' as const,
     href: null,
@@ -77,7 +77,7 @@ const plans = [
     originalPrice: isLaunchPromo ? 12.99 : null,
     priceNote: '/mo',
     popular: true,
-    pageLabel: '300 credits',
+    pageLabel: '500 credits',
     features: { pages: true, styles: true, reference: true, png: true, pdf: true, watermark: true, commercial: true, merch: true, transparent: true } as Record<FeatureKey, boolean>,
     buttonText: 'Subscribe',
     buttonStyle: 'gradient' as const,
@@ -90,7 +90,7 @@ const plans = [
     price: 19.99,
     originalPrice: isLaunchPromo ? 24.99 : null,
     priceNote: '/mo',
-    pageLabel: '1000 credits',
+    pageLabel: '2000 credits',
     features: { pages: true, styles: true, reference: true, png: true, pdf: true, watermark: true, commercial: true, merch: true, transparent: true } as Record<FeatureKey, boolean>,
     buttonText: 'Subscribe',
     buttonStyle: 'filled' as const,
@@ -122,7 +122,7 @@ export function Pricing() {
       <div className="container mx-auto px-4 md:px-6 max-w-[1300px]">
         <div className="text-center mb-6">
           <h2 className="font-display text-[32px] md:text-[40px] text-foreground mb-4" style={{ letterSpacing: '-0.5px' }}>
-            Simple Pricing
+            Simple Pricing for Sellers
           </h2>
           {isLaunchPromo && (
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full" style={{ background: '#FFB80010', border: '1.5px solid #FFB80025' }}>
@@ -297,7 +297,7 @@ export function Pricing() {
 
         <div className="mt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            💡 Generate: <strong>1 cr</strong> · Color & Merch: <strong>3 cr</strong> · Fridge Magnet: <strong>2 cr</strong> · Sticker: <strong>2 cr</strong> · Canvas Print: <strong>0 cr</strong> · Reference: <strong>5 cr</strong>
+            💡 Generate: <strong>1 cr</strong> · Batch 5 pages: <strong>4 cr</strong> · Batch 20 pages: <strong>15 cr</strong> · PDF Export: <strong>5 cr</strong> · Reference: <strong>3 cr</strong>
           </p>
         </div>
       </div>

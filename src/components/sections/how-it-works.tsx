@@ -1,31 +1,29 @@
-import { Pencil, Upload, Sparkles, Palette, Package, ArrowRight } from 'lucide-react';
+import { Sparkles, Layers, FileText, Download, ArrowRight } from 'lucide-react';
 
 const steps = [
   {
     number: 1,
-    title: 'Describe or Upload',
-    description: 'Type what you want, or upload a reference photo to transform',
-    icon: Pencil,
-    subIcon: Upload,
+    title: 'Pick a Theme & Describe',
+    description: 'Choose from 50+ themes or describe your own — fairy garden, cottagecore, mandala...',
+    icon: Sparkles,
   },
   {
     number: 2,
-    title: 'Generate Line Art',
-    description: 'AI creates clean line art from your description',
-    icon: Sparkles,
+    title: 'AI Generates Pages in Batch',
+    description: 'Create 30-50 unique coloring pages in one session with consistent style',
+    icon: Layers,
   },
   {
     number: 3,
-    title: 'Color & Merch',
-    description: 'Apply colors and art styles with one click',
-    icon: Sparkles,
+    title: 'Auto-Layout & Assemble Book',
+    description: 'Single-page design + blank back page, KDP-standard formatting',
+    icon: FileText,
   },
   {
     number: 4,
-    title: 'Turn into Merch',
-    description: 'Make fridge magnets, stickers, or canvas prints',
-    icon: Palette,
-    subIcon: Package,
+    title: 'Export Print-Ready PDF & Sell',
+    description: '300 DPI PDF with correct trim size, bleed, and margins — upload directly to KDP',
+    icon: Download,
   },
 ];
 

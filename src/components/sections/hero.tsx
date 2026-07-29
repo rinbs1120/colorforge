@@ -2,41 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { Sparkles, ArrowRight, BookOpen, FileText, Check } from 'lucide-react';
 
-
-
-const demoFlows = [
-  {
-    id: 'panda',
-    product: 'Sticker',
-    productColor: '#FFD666',
-    promptWords: ['Cute', 'panda', 'eating', 'bamboo'],
-    styleName: 'Pop Art',
-    images: {
-      lineart: '/hero/panda-lineart.jpg',
-      colored: '/hero/panda-colored.jpg',
-      product: '/hero/panda-sticker.png',
-    },
-  },
-  {
-    id: 'phoenix',
-    product: 'Fridge Magnet',
-    productColor: '#FFB800',
-    promptWords: ['Phoenix', 'rising', 'over', 'volcano'],
-    styleName: 'Vivid',
-    images: {
-      lineart: '/hero/phoenix-lineart.jpg',
-      colored: '/hero/phoenix-colored.jpg',
-      product: '/hero/phoenix-magnet.png',
-    },
-  },
-];
-
-const STEP_COUNT = 4;
-const STEP_DURATIONS = [3200, 2800, 2800, 4500];
-const WORD_TYPING_INTERVAL = 450;
+const BOOK_STEPS = 3;
+const STEP_DURATIONS = [3500, 3500, 4000];
 
 /* Dark theme colors */
 const dark = {
@@ -51,34 +20,15 @@ const dark = {
 };
 
 export function Hero() {
-  const [phase, setPhase] = useState(0);
-  const [visibleWords, setVisibleWords] = useState(0);
-
-  const totalPhases = demoFlows.length * STEP_COUNT;
-  const demoIdx = Math.floor(phase / STEP_COUNT) % demoFlows.length;
-  const stepIdx = phase % STEP_COUNT;
-  const demo = demoFlows[demoIdx];
-  const is3D = stepIdx === 3;
-
-  // Mechanical typing
-  useEffect(() => {
-    if (stepIdx === 0) {
-      setVisibleWords(0);
-      const timers: NodeJS.Timeout[] = [];
-      demo.promptWords.forEach((_, i) => {
-        timers.push(setTimeout(() => setVisibleWords(i + 1), 600 + i * WORD_TYPING_INTERVAL));
-      });
-      return () => timers.forEach(clearTimeout);
-    }
-  }, [stepIdx, demo.promptWords]);
+  const [stepIdx, setStepIdx] = useState(0);
 
   // Auto-advance
   useEffect(() => {
     const timer = setTimeout(() => {
-      setPhase(prev => (prev + 1) % totalPhases);
+      setStepIdx(prev => (prev + 1) % BOOK_STEPS);
     }, STEP_DURATIONS[stepIdx]);
     return () => clearTimeout(timer);
-  }, [phase, stepIdx, totalPhases]);
+  }, [stepIdx]);
 
   return (
     <section className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
@@ -86,24 +36,22 @@ export function Hero() {
 
       <div className="container mx-auto px-4 md:px-6 max-w-[1440px]">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Text — brand-forward, poster-style, single accent color */}
+          {/* Left: Text */}
           <div className="text-center lg:text-left">
             {/* Eyebrow label */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8" style={{ background: '#FFB80010', border: '1.5px solid #FFB80025' }}>
               <div className="w-2 h-2 rounded-full" style={{ background: '#FFB800' }} />
-              <span className="text-sm font-semibold tracking-wide" style={{ color: '#FFB800' }}>AI-Powered Creative Studio</span>
+              <span className="text-sm font-semibold tracking-wide" style={{ color: '#FFB800' }}>AI-Powered Coloring Book Engine</span>
             </div>
 
             <h1 className="font-display text-4xl md:text-5xl lg:text-[52px] leading-[1.08] mb-7" style={{ letterSpacing: '-1px' }}>
-              <span style={{ color: '#FFB800' }}>Color It,</span>
+              <span style={{ color: '#FFB800' }}>Create Coloring Books</span>
               <br />
-              Then Make It Yours
+              That Sell
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Turn your imagination into stunning <span className="font-semibold text-foreground">line art</span>,
-              color it with <span className="font-semibold text-foreground">AI styles</span>,
-              then transform it into <span className="font-semibold" style={{ color: '#FFB800' }}>fridge magnets, stickers &amp; canvas prints</span>.
+              AI-powered coloring page generator for KDP &amp; Etsy sellers. Batch create, auto-layout, export print-ready PDF — commercial license included.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
@@ -115,7 +63,7 @@ export function Hero() {
                   boxShadow: '0 4px 24px rgba(255,184,0,0.35)',
                 }}
               >
-                <Sparkles className="w-5 h-5" />Start Creating — Free
+                <Sparkles className="w-5 h-5" />Start Creating — 5 Free Pages
               </Link>
               <Link
                 href="#how-it-works"
@@ -128,11 +76,11 @@ export function Hero() {
 
             {/* Minimal trust line */}
             <p className="text-sm text-muted-foreground">
-              No credit card · 2 free credits · Ready to print
+              No credit card · 5 free pages · Commercial license · 300 DPI Print-Ready
             </p>
           </div>
 
-          {/* Right: Mini App Demo — Dark theme, larger */}
+          {/* Right: Book Creation Demo — 3 steps */}
           <div className="hidden lg:flex lg:justify-center lg:items-center">
             <div
               className="relative rounded-2xl overflow-hidden"
@@ -143,7 +91,7 @@ export function Hero() {
                 animation: 'heroTransformSlideIn 0.8s ease-out both',
               }}
             >
-              {/* Window top bar — dark */}
+              {/* Window top bar */}
               <div className="flex items-center gap-2 px-4 py-3 border-b" style={{ background: dark.surface, borderColor: dark.border }}>
                 <div className="flex gap-2">
                   <div className="w-3 h-3 rounded-full" style={{ background: '#FF5F57' }} />
@@ -152,12 +100,12 @@ export function Hero() {
                 </div>
                 <span className="font-display text-xs ml-3" style={{ color: dark.textMuted }}>PixCraftX</span>
                 <div className="ml-auto flex gap-2">
-                  {[0,1,2,3].map(i => (
+                  {[0,1,2].map(i => (
                     <div key={i} className="rounded-full transition-all duration-500" style={{
                       width: stepIdx===i ? '24px' : '8px',
                       height: '8px',
                       background: stepIdx>=i
-                        ? (i===0 ? '#1A1A2E' : i===1 ? '#FFB800' : i===2 ? '#FFD666' : '#E8D5A0')
+                        ? (i===0 ? '#FFB800' : i===1 ? '#FFD666' : '#2ECC71')
                         : dark.surfaceLight,
                     }} />
                   ))}
@@ -167,138 +115,145 @@ export function Hero() {
               {/* Content area */}
               <div className="relative" style={{ minHeight: '420px' }}>
 
-                {/* STEP 0: Generate */}
+                {/* STEP 0: Pick Theme → AI generates pages */}
                 <div className="absolute inset-0 flex flex-col transition-all duration-700" style={{ opacity: stepIdx===0?1:0, transform: stepIdx===0?'translateX(0)':'translateX(-40px)', pointerEvents: stepIdx===0?'auto':'none' }}>
                   <div className="px-5 pt-5 pb-3">
-                    <div className="rounded-xl px-4 py-3 text-sm" style={{ background: dark.surfaceLight, border: `1px solid ${dark.border}`, minHeight: '40px' }}>
+                    <p className="text-[10px] font-bold uppercase tracking-wider mb-2" style={{ color: dark.textMuted }}>Step 1 — Describe your theme</p>
+                    <div className="rounded-xl px-4 py-3 text-sm" style={{ background: dark.surfaceLight, border: `1px solid ${dark.border}` }}>
                       <span style={{ color: dark.accent }} className="mr-2">✨</span>
-                      {demo.promptWords.map((word, i) => (
-                        <span key={i} className="inline transition-all duration-200" style={{ opacity: i < visibleWords ? 1 : 0, color: dark.text }}>
-                          {word}{i < demo.promptWords.length - 1 ? ' ' : ''}
-                        </span>
-                      ))}
+                      <span style={{ color: dark.text }}>Enchanted fairy garden with mushrooms and flowers...</span>
                       <span className="inline-block w-[2px] h-4 ml-0.5 align-middle" style={{ background: dark.accent, animation: 'heroBlink 0.8s step-end infinite' }} />
                     </div>
-                    <button className="mt-3 px-4 py-2 rounded-lg text-xs font-bold text-[#1A1A2E]" style={{ background: '#FFB800' }}>Generate Line Art</button>
+                    <button className="mt-3 px-4 py-2 rounded-lg text-xs font-bold text-[#1A1A2E]" style={{ background: '#FFB800' }}>
+                      <Sparkles className="w-3 h-3 inline mr-1" />Generate 30 Pages
+                    </button>
                   </div>
+                  {/* Thumbnail grid of generated pages */}
                   <div className="flex-1 px-5 pb-5">
-                    <div className="relative rounded-xl overflow-hidden" style={{ aspectRatio: '3/4', background: dark.surfaceLight, maxHeight: '300px' }}>
-                      <Image src={demo.images.lineart} alt="Generated line art" width={480} height={640} className="w-full h-full object-cover" style={{ opacity: stepIdx===0?1:0, animation: stepIdx===0?'heroFadeIn 0.8s ease-out 2.2s both':'none' }} />
-                    </div>
-                  </div>
-                </div>
-
-                {/* STEP 1: Color & Merch */}
-                <div className="absolute inset-0 flex transition-all duration-700" style={{ opacity: stepIdx===1?1:0, transform: stepIdx===1?'translateX(0)':stepIdx<1?'translateX(40px)':'translateX(-40px)', pointerEvents: stepIdx===1?'auto':'none' }}>
-                  <div className="w-[170px] p-4 border-r" style={{ background: dark.surface, borderColor: dark.border }}>
-                    <p className="text-[10px] font-bold uppercase tracking-wider mb-3" style={{ color: dark.textMuted }}>Art Style</p>
-                    {['Pastel', demo.styleName, 'Muted'].map((name) => {
-                      const sel = name === demo.styleName;
-                      return (
-                        <div key={name} className="flex items-center gap-2 px-3 py-2 rounded-lg mb-1.5 text-xs" style={{
-                          background: sel ? `${dark.accent}15` : 'transparent',
-                          border: sel ? `1.5px solid ${dark.accent}` : `1.5px solid transparent`,
-                          fontWeight: sel ? 700 : 400,
-                          color: sel ? dark.accent : dark.textMuted,
-                        }}>
-                          <div className="w-3.5 h-3.5 rounded-full" style={{ background: name==='Pastel'?'#FFD1DC':name===demo.styleName?'#FFB800':'#A8B5A0' }} />
-                          {name}
+                    <p className="text-[10px] font-bold uppercase tracking-wider mb-2" style={{ color: dark.textMuted }}>AI Generated Line Art Pages</p>
+                    <div className="grid grid-cols-5 gap-2">
+                      {Array.from({length: 10}).map((_, i) => (
+                        <div
+                          key={i}
+                          className="rounded-lg aspect-[3/4] flex items-center justify-center"
+                          style={{
+                            background: dark.surfaceLight,
+                            border: `1px solid ${dark.border}`,
+                            animation: `heroFadeIn 0.4s ease-out ${0.3 + i * 0.1}s both`,
+                          }}
+                        >
+                          <svg width="24" height="32" viewBox="0 0 24 32" fill="none" style={{ opacity: 0.5 }}>
+                            <rect x="2" y="2" width="20" height="28" rx="3" stroke={dark.textMuted} strokeWidth="1.5" />
+                            <path d="M7 12 Q12 6 17 12 Q12 18 7 12Z" stroke={dark.accent} strokeWidth="1" fill="none" />
+                            <circle cx="12" cy="22" r="3" stroke={dark.accent} strokeWidth="1" fill="none" />
+                          </svg>
                         </div>
-                      );
-                    })}
-                    <button className="mt-3 w-full px-3 py-2 rounded-lg text-[11px] font-bold text-[#1A1A2E]" style={{ background: '#FFB800' }}>Color It!</button>
-                  </div>
-                  <div className="flex-1 p-4">
-                    <div className="relative rounded-xl overflow-hidden" style={{ aspectRatio: '3/4', background: dark.surfaceLight, maxHeight: '360px' }}>
-                      <Image src={demo.images.lineart} alt="Line art" width={480} height={640} className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" style={{ opacity: 0 }} />
-                      <Image src={demo.images.colored} alt="Colored" width={480} height={640} className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" style={{ opacity: 1 }} />
+                      ))}
                     </div>
+                    <p className="text-[10px] mt-2 text-center" style={{ color: dark.accent }}>+20 more pages generating...</p>
                   </div>
                 </div>
 
-                {/* STEP 2: Product */}
-                <div className="absolute inset-0 flex transition-all duration-700" style={{ opacity: stepIdx===2?1:0, transform: stepIdx===2?'translateX(0)':stepIdx<2?'translateX(40px)':'translateX(-40px)', pointerEvents: stepIdx===2?'auto':'none' }}>
-                  <div className="w-[170px] p-4 border-r" style={{ background: dark.surface, borderColor: dark.border }}>
-                    <p className="text-[10px] font-bold uppercase tracking-wider mb-3" style={{ color: dark.textMuted }}>Product</p>
-                    {[
-                      { name: 'Canvas Print', bg: '#4A4A64' },
-                      { name: demo.product, bg: demo.productColor },
-                      { name: demo.id==='panda'?'Fridge Magnet':'Sticker', bg: '#4A4A64' },
-                    ].map((p) => {
-                      const sel = p.name === demo.product;
-                      return (
-                        <div key={p.name} className="flex items-center gap-2 px-3 py-2 rounded-lg mb-1.5 text-xs" style={{
-                          background: sel ? `${demo.productColor}18` : 'transparent',
-                          border: sel ? `1.5px solid ${demo.productColor}` : `1.5px solid transparent`,
-                          fontWeight: sel ? 700 : 400,
-                          color: sel ? demo.productColor : dark.textMuted,
-                        }}>
-                          <div className="w-3.5 h-3.5 rounded" style={{ background: p.bg }} />
-                          {p.name}
-                        </div>
-                      );
-                    })}
-                    <button className="mt-3 w-full px-3 py-2 rounded-lg text-[11px] font-bold text-[#1A1A2E]" style={{ background: '#FFB800' }}>Create Product</button>
-                  </div>
-                  <div className="flex-1 p-4">
-                    <div className="relative rounded-xl overflow-hidden" style={{ aspectRatio: '3/4', background: dark.surfaceLight, maxHeight: '360px' }}>
-                      <Image src={demo.images.product} alt={demo.product} width={480} height={640} className="absolute inset-0 w-full h-full object-contain" style={{ opacity: 1 }} />
-                    </div>
-                  </div>
-                </div>
-
-                {/* STEP 3: 3D Showcase — dark stage, transparent product, real 3D rotation */}
-                <div
-                  className="absolute inset-0 flex flex-col items-center justify-center transition-all duration-700"
-                  style={{
-                    opacity: stepIdx===3 ? 1 : 0,
-                    transform: stepIdx===3 ? 'translateX(0) scale(1)' : 'translateX(40px) scale(0.95)',
-                    pointerEvents: stepIdx===3 ? 'auto' : 'none',
-                    background: `radial-gradient(ellipse at 50% 40%, ${dark.surfaceLight} 0%, ${dark.bg} 70%)`,
-                  }}
-                >
-                  {/* Spotlight effect */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[200px] pointer-events-none" style={{ background: `radial-gradient(ellipse, ${demo.productColor}08 0%, transparent 70%)` }} />
-
-                  {/* Reflection surface */}
-                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[220px] h-[20px] rounded-full pointer-events-none" style={{ background: `radial-gradient(ellipse, ${demo.productColor}20 0%, transparent 70%)`, filter: 'blur(10px)' }} />
-
-                  {/* 3D rotating product */}
-                  <div className="hero-3d-stage" style={{ perspective: '1200px' }}>
+                {/* STEP 1: Auto-Layout Preview */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center transition-all duration-700" style={{ opacity: stepIdx===1?1:0, transform: stepIdx===1?'translateX(0)':stepIdx<1?'translateX(40px)':'translateX(-40px)', pointerEvents: stepIdx===1?'auto':'none' }}>
+                  <p className="text-[10px] font-bold uppercase tracking-wider mb-4" style={{ color: dark.textMuted }}>Step 2 — Auto-Layout &amp; Assemble</p>
+                  {/* Book spread mockup */}
+                  <div className="flex gap-1 mb-4" style={{ perspective: '800px' }}>
+                    {/* Left page (blank) */}
                     <div
-                      className="hero-3d-spinner"
+                      className="rounded-lg flex flex-col items-center justify-center"
                       style={{
-                        transformStyle: 'preserve-3d',
-                        animation: 'hero3DRotate 4s ease-in-out infinite',
+                        width: '180px',
+                        height: '240px',
+                        background: '#FAFAF8',
+                        border: '1px solid #E5E7EB',
+                        transform: 'rotateY(5deg)',
+                        boxShadow: '4px 4px 16px rgba(0,0,0,0.1)',
                       }}
                     >
-                      <Image
-                        src={demo.images.product}
-                        alt={demo.product}
-                        width={480}
-                        height={640}
-                        style={{
-                          width: '200px',
-                          height: 'auto',
-                          filter: `drop-shadow(0 12px 32px rgba(0,0,0,0.35)) drop-shadow(0 4px 12px ${demo.productColor}30)`,
-                        }}
-                      />
+                      <span className="text-xs text-gray-300 font-medium">Blank Back Page</span>
+                      <span className="text-[10px] text-gray-300 mt-1">KDP Standard</span>
+                    </div>
+                    {/* Right page (line art) */}
+                    <div
+                      className="rounded-lg flex flex-col items-center justify-center"
+                      style={{
+                        width: '180px',
+                        height: '240px',
+                        background: '#FAFAF8',
+                        border: '1px solid #E5E7EB',
+                        transform: 'rotateY(-5deg)',
+                        boxShadow: '-4px 4px 16px rgba(0,0,0,0.1)',
+                      }}
+                    >
+                      <svg width="100" height="130" viewBox="0 0 100 130" fill="none">
+                        <path d="M20 40 Q50 10 80 40 Q50 70 20 40Z" stroke="#1A1A2E" strokeWidth="1.5" fill="none" />
+                        <path d="M30 80 Q50 60 70 80 Q50 100 30 80Z" stroke="#1A1A2E" strokeWidth="1.5" fill="none" />
+                        <circle cx="50" cy="110" r="8" stroke="#1A1A2E" strokeWidth="1.5" fill="none" />
+                        <path d="M10 20 L15 15 M90 20 L85 15 M50 5 L50 10" stroke="#1A1A2E" strokeWidth="1" fill="none" />
+                      </svg>
+                      <span className="text-[10px] text-gray-400 mt-1">Page 12 — Fairy Garden</span>
                     </div>
                   </div>
+                  <div className="flex gap-3">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold" style={{ background: `${dark.accent}18`, border: `1px solid ${dark.accent}30`, color: dark.accent }}>
+                      <BookOpen className="w-3 h-3" />30 pages assembled
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold" style={{ background: `${dark.accent}18`, border: `1px solid ${dark.accent}30`, color: dark.accent }}>
+                      8.5×11″ trim size
+                    </span>
+                  </div>
+                </div>
 
-                  {/* Status badges */}
-                  <div className="flex gap-3 mt-6">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold text-[#2ECC71]" style={{ background: '#2ECC7118', border: '1px solid #2ECC7130' }}>✓ BG Removed</span>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold text-[#1A1A2E]" style={{ background: '#FFB800' }}>↓ Download</span>
+                {/* STEP 2: Export PDF & Sell */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center transition-all duration-700" style={{ opacity: stepIdx===2?1:0, transform: stepIdx===2?'translateX(0)':stepIdx<2?'translateX(40px)':'translateX(-40px)', pointerEvents: stepIdx===2?'auto':'none' }}>
+                  <p className="text-[10px] font-bold uppercase tracking-wider mb-4" style={{ color: dark.textMuted }}>Step 3 — Export &amp; Upload to KDP</p>
+                  {/* PDF file icon */}
+                  <div className="relative mb-4">
+                    <div
+                      className="rounded-xl flex flex-col items-center justify-center"
+                      style={{
+                        width: '160px',
+                        height: '200px',
+                        background: '#FAFAF8',
+                        border: '2px solid #E5E7EB',
+                        boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+                      }}
+                    >
+                      <FileText className="w-12 h-12 text-[#FF4444] mb-2" />
+                      <span className="text-xs font-bold text-foreground">Coloring-Book.pdf</span>
+                      <span className="text-[10px] text-gray-400 mt-1">300 DPI · 30 pages</span>
+                      <span className="text-[10px] text-gray-400">8.5×11″ · Bleed included</span>
+                    </div>
+                    {/* Download arrow */}
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2">
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#FFB800' }}>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                          <path d="M6 1 L6 8 M3 6 L6 9 L9 6" stroke="#1A1A2E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Platform badges */}
+                  <div className="flex gap-3 mt-4">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold" style={{ background: '#2ECC7118', border: '1px solid #2ECC7130', color: '#2ECC71' }}>
+                      <Check className="w-3 h-3" />KDP Ready
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold" style={{ background: '#2ECC7118', border: '1px solid #2ECC7130', color: '#2ECC71' }}>
+                      <Check className="w-3 h-3" />Etsy Ready
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold" style={{ background: '#2ECC7118', border: '1px solid #2ECC7130', color: '#2ECC71' }}>
+                      <Check className="w-3 h-3" />Commercial ✓
+                    </span>
                   </div>
                 </div>
 
               </div>
 
-              {/* Bottom label — dark */}
+              {/* Bottom label */}
               <div className="px-5 py-3 flex items-center justify-center border-t" style={{ background: dark.surface, borderColor: dark.border }}>
-                <span className="font-display text-xs px-4 py-1.5 rounded-full" style={{ color: demo.productColor, background: `${demo.productColor}18`, border: `1px solid ${demo.productColor}30` }}>
-                  {demo.product}
+                <span className="font-display text-xs px-4 py-1.5 rounded-full" style={{ color: dark.accent, background: `${dark.accent}18`, border: `1px solid ${dark.accent}30` }}>
+                  Coloring Book Workflow
                 </span>
               </div>
             </div>

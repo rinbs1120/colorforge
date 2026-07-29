@@ -1,25 +1,25 @@
-import { Sparkles, Upload, Palette, Zap } from 'lucide-react';
+import { Layers, FileText, FileDown, Shield } from 'lucide-react';
 
 const highlights = [
   {
-    icon: Sparkles,
-    tag: 'Oriental Fantasy',
-    text: 'From soaring dragons to moonlit pagodas — create stunning Oriental-themed line art with AI.',
+    icon: Layers,
+    tag: 'Batch Generation',
+    text: 'Create 30-50 coloring pages in one session — no more generating one by one',
   },
   {
-    icon: Upload,
-    tag: 'Reference Upload',
-    text: "Upload any photo and we'll transform it into a coloring page while keeping the composition and subject.",
+    icon: FileText,
+    tag: 'Auto-Layout',
+    text: 'Single-page design + blank back page, KDP-standard formatting out of the box',
   },
   {
-    icon: Palette,
-    tag: 'Color & Merch',
-    text: 'Apply 3 color palettes or 4 art styles with one click. Pastel, Pop Art, City Pop, and more.',
+    icon: FileDown,
+    tag: 'Print-Ready PDF',
+    text: '300 DPI with correct trim size, bleed, and margins — no Photoshop needed',
   },
   {
-    icon: Zap,
-    tag: 'Turn into Merch',
-    text: 'Transform your colored art into fridge magnets, stickers, and canvas prints. Download transparent PNGs ready for production.',
+    icon: Shield,
+    tag: 'Commercial License',
+    text: 'Sell on KDP, Etsy, or anywhere. All paid plans include full commercial rights',
   },
 ] as const;
 
@@ -30,10 +30,10 @@ export function WhyPixCraftX() {
         {/* Section header with eyebrow */}
         <div className="text-center mb-14">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4 text-sm font-semibold" style={{ background: '#FFB80010', border: '1.5px solid #FFB80025', color: '#FFB800' }}>
-            ✦ Why Us
+            ✦ Built for KDP &amp; Etsy
           </span>
           <h2 className="font-display text-[32px] md:text-[40px] text-foreground" style={{ letterSpacing: '-0.5px' }}>
-            Why PixCraftX?
+            Why PixCraftX for KDP
           </h2>
         </div>
 

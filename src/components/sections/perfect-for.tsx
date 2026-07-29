@@ -1,41 +1,41 @@
-import { Users, GraduationCap, Palette } from 'lucide-react';
+import { Store, ShoppingBag, Users } from 'lucide-react';
 
 const personas = [
   {
-    icon: Users,
-    emoji: '👨‍👩‍👧',
-    title: 'Parents',
-    headline: 'Creative fun for the whole family',
+    icon: Store,
+    emoji: '📚',
+    title: 'KDP Publishers',
+    headline: 'Create coloring books at scale, export KDP-ready PDF',
     points: [
-      'Generate any theme your child loves',
-      'Color together, then make fridge magnets',
-      'Turn their art into real keepsakes',
+      'Batch generate 30-50 pages per book',
+      'Auto-layout with blank back pages',
+      '300 DPI print-ready with correct trim size',
     ],
     color: '#FFB800',
     bg: 'rgba(255, 184, 0, 0.06)',
   },
   {
-    icon: GraduationCap,
-    emoji: '👩‍💼',
-    title: 'Teachers',
-    headline: 'Educational pages in seconds',
+    icon: ShoppingBag,
+    emoji: '🎨',
+    title: 'Etsy Sellers',
+    headline: 'Design unique coloring pages that stand out',
     points: [
-      'Alphabet, numbers, science — any topic',
-      'Customize for your lesson plan',
-      'Print-ready at 300 DPI for handouts',
+      'Custom themes and styles per collection',
+      'Multiple sizes: 8.5×11″, 8.5×8.5″, 6×9″',
+      'Commercial license included in all plans',
     ],
     color: '#E8D5A0',
     bg: 'rgba(232, 213, 160, 0.06)',
   },
   {
-    icon: Palette,
-    emoji: '🎨',
-    title: 'Creators',
-    headline: 'Turn art into sellable merch',
+    icon: Users,
+    emoji: '💼',
+    title: 'Content Creators',
+    headline: 'Generate themed collections for your audience',
     points: [
-      'Generate line art, color it, make products',
-      'Fridge magnets, stickers, canvas prints',
-      'Commercial license included in Pro+',
+      'Consistent style across entire book',
+      'Reference image upload for custom designs',
+      'Sell on KDP, Etsy, or your own store',
     ],
     color: '#FFD666',
     bg: 'rgba(255, 214, 102, 0.06)',
@@ -51,10 +51,10 @@ export function PerfectFor() {
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="font-display text-[32px] md:text-[40px] text-white mb-4" style={{ letterSpacing: '-0.5px' }}>
-            Perfect For
+            Built for Sellers
           </h2>
           <p className="text-gray-400 text-lg">
-            Whether you&apos;re a parent, teacher, or creator — PixCraftX fits your needs
+            Everything you need to create and sell coloring books at scale
           </p>
         </div>
 
