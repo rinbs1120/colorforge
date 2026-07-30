@@ -129,28 +129,50 @@ export function Hero() {
                     </button>
                   </div>
                   {/* Thumbnail grid of generated pages */}
-                  <div className="flex-1 px-5 pb-5">
+                  <div className="flex-1 px-5 pb-4 overflow-hidden">
                     <p className="text-[10px] font-bold uppercase tracking-wider mb-2" style={{ color: dark.textMuted }}>AI Generated Line Art Pages</p>
                     <div className="grid grid-cols-5 gap-2">
-                      {Array.from({length: 10}).map((_, i) => (
-                        <div
-                          key={i}
-                          className="rounded-lg aspect-[3/4] flex items-center justify-center"
-                          style={{
-                            background: dark.surfaceLight,
-                            border: `1px solid ${dark.border}`,
-                            animation: `heroFadeIn 0.4s ease-out ${0.3 + i * 0.1}s both`,
-                          }}
-                        >
-                          <svg width="24" height="32" viewBox="0 0 24 32" fill="none" style={{ opacity: 0.5 }}>
-                            <rect x="2" y="2" width="20" height="28" rx="3" stroke={dark.textMuted} strokeWidth="1.5" />
-                            <path d="M7 12 Q12 6 17 12 Q12 18 7 12Z" stroke={dark.accent} strokeWidth="1" fill="none" />
-                            <circle cx="12" cy="22" r="3" stroke={dark.accent} strokeWidth="1" fill="none" />
-                          </svg>
-                        </div>
-                      ))}
+                      {/* 1: Mushroom */}
+                      <div className="rounded-lg aspect-[3/4] flex items-center justify-center" style={{ background: '#FAFAF8', border: `1px solid ${dark.border}`, animation: `heroFadeIn 0.4s ease-out 0.3s both` }}>
+                        <svg width="32" height="42" viewBox="0 0 32 42" fill="none"><path d="M16 6C9 6 4 14 4 20h24c0-6-5-14-12-14z" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><rect x="14" y="20" width="4" height="14" rx="1" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><circle cx="10" cy="13" r="1.5" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/><circle cx="20" cy="11" r="1" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/><circle cx="15" cy="9" r="1.2" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/></svg>
+                      </div>
+                      {/* 2: Flower */}
+                      <div className="rounded-lg aspect-[3/4] flex items-center justify-center" style={{ background: '#FAFAF8', border: `1px solid ${dark.border}`, animation: `heroFadeIn 0.4s ease-out 0.4s both` }}>
+                        <svg width="32" height="42" viewBox="0 0 32 42" fill="none"><circle cx="16" cy="14" r="4" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><circle cx="16" cy="8" r="3" stroke="#2D2D3A" strokeWidth="1" fill="none"/><circle cx="11" cy="12" r="3" stroke="#2D2D3A" strokeWidth="1" fill="none"/><circle cx="21" cy="12" r="3" stroke="#2D2D3A" strokeWidth="1" fill="none"/><circle cx="12" cy="18" r="3" stroke="#2D2D3A" strokeWidth="1" fill="none"/><circle cx="20" cy="18" r="3" stroke="#2D2D3A" strokeWidth="1" fill="none"/><line x1="16" y1="18" x2="16" y2="36" stroke="#2D2D3A" strokeWidth="1.2"/><path d="M16 26Q12 22 10 26" stroke="#2D2D3A" strokeWidth="1" fill="none"/><path d="M16 30Q20 26 22 30" stroke="#2D2D3A" strokeWidth="1" fill="none"/></svg>
+                      </div>
+                      {/* 3: Butterfly */}
+                      <div className="rounded-lg aspect-[3/4] flex items-center justify-center" style={{ background: '#FAFAF8', border: `1px solid ${dark.border}`, animation: `heroFadeIn 0.4s ease-out 0.5s both` }}>
+                        <svg width="32" height="42" viewBox="0 0 32 42" fill="none"><path d="M16 12Q6 4 4 14Q6 22 16 18Z" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><path d="M16 12Q26 4 28 14Q26 22 16 18Z" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><path d="M16 20Q8 18 6 26Q10 32 16 26Z" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><path d="M16 20Q24 18 26 26Q22 32 16 26Z" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><line x1="16" y1="10" x2="16" y2="30" stroke="#2D2D3A" strokeWidth="1.2"/><circle cx="13" cy="10" r="1" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/><circle cx="19" cy="10" r="1" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/></svg>
+                      </div>
+                      {/* 4: Leaf */}
+                      <div className="rounded-lg aspect-[3/4] flex items-center justify-center" style={{ background: '#FAFAF8', border: `1px solid ${dark.border}`, animation: `heroFadeIn 0.4s ease-out 0.6s both` }}>
+                        <svg width="32" height="42" viewBox="0 0 32 42" fill="none"><path d="M16 4Q28 16 16 38Q4 16 16 4Z" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><line x1="16" y1="4" x2="16" y2="38" stroke="#2D2D3A" strokeWidth="1"/><path d="M16 12Q22 16 16 22" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/><path d="M16 18Q10 22 16 28" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/><path d="M16 8Q20 12 16 16" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/></svg>
+                      </div>
+                      {/* 5: Star mandala */}
+                      <div className="rounded-lg aspect-[3/4] flex items-center justify-center" style={{ background: '#FAFAF8', border: `1px solid ${dark.border}`, animation: `heroFadeIn 0.4s ease-out 0.7s both` }}>
+                        <svg width="32" height="42" viewBox="0 0 32 42" fill="none"><circle cx="16" cy="18" r="10" stroke="#2D2D3A" strokeWidth="1" fill="none"/><circle cx="16" cy="18" r="6" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/><circle cx="16" cy="18" r="2" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/><line x1="26" y1="18" x2="22" y2="18" stroke="#2D2D3A" strokeWidth="0.8"/><line x1="6" y1="18" x2="10" y2="18" stroke="#2D2D3A" strokeWidth="0.8"/><line x1="16" y1="8" x2="16" y2="12" stroke="#2D2D3A" strokeWidth="0.8"/><line x1="16" y1="28" x2="16" y2="24" stroke="#2D2D3A" strokeWidth="0.8"/><line x1="23.07" y1="10.93" x2="20.24" y2="13.76" stroke="#2D2D3A" strokeWidth="0.8"/><line x1="8.93" y1="25.07" x2="11.76" y2="22.24" stroke="#2D2D3A" strokeWidth="0.8"/><line x1="23.07" y1="25.07" x2="20.24" y2="22.24" stroke="#2D2D3A" strokeWidth="0.8"/><line x1="8.93" y1="10.93" x2="11.76" y2="13.76" stroke="#2D2D3A" strokeWidth="0.8"/></svg>
+                      </div>
+                      {/* 6: Rabbit */}
+                      <div className="rounded-lg aspect-[3/4] flex items-center justify-center" style={{ background: '#FAFAF8', border: `1px solid ${dark.border}`, animation: `heroFadeIn 0.4s ease-out 0.8s both` }}>
+                        <svg width="32" height="42" viewBox="0 0 32 42" fill="none"><ellipse cx="16" cy="26" rx="8" ry="10" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><ellipse cx="12" cy="10" rx="3" ry="8" stroke="#2D2D3A" strokeWidth="1" fill="none"/><ellipse cx="20" cy="10" rx="3" ry="8" stroke="#2D2D3A" strokeWidth="1" fill="none"/><circle cx="16" cy="22" r="6" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><circle cx="14" cy="21" r="0.8" fill="#2D2D3A"/><circle cx="18" cy="21" r="0.8" fill="#2D2D3A"/><path d="M15 24Q16 25.5 17 24" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/></svg>
+                      </div>
+                      {/* 7: Tree */}
+                      <div className="rounded-lg aspect-[3/4] flex items-center justify-center" style={{ background: '#FAFAF8', border: `1px solid ${dark.border}`, animation: `heroFadeIn 0.4s ease-out 0.9s both` }}>
+                        <svg width="32" height="42" viewBox="0 0 32 42" fill="none"><path d="M16 4L6 22h20L16 4z" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><path d="M16 12L8 26h16L16 12z" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><rect x="14" y="26" width="4" height="10" rx="1" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><line x1="16" y1="26" x2="16" y2="36" stroke="#2D2D3A" strokeWidth="0.8"/></svg>
+                      </div>
+                      {/* 8: Dragonfly */}
+                      <div className="rounded-lg aspect-[3/4] flex items-center justify-center" style={{ background: '#FAFAF8', border: `1px solid ${dark.border}`, animation: `heroFadeIn 0.4s ease-out 1.0s both` }}>
+                        <svg width="32" height="42" viewBox="0 0 32 42" fill="none"><ellipse cx="16" cy="20" rx="3" ry="10" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><ellipse cx="10" cy="18" rx="6" ry="3" stroke="#2D2D3A" strokeWidth="1" fill="none"/><ellipse cx="22" cy="18" rx="6" ry="3" stroke="#2D2D3A" strokeWidth="1" fill="none"/><ellipse cx="10" cy="22" rx="5" ry="2.5" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/><ellipse cx="22" cy="22" rx="5" ry="2.5" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/><circle cx="16" cy="12" r="2.5" stroke="#2D2D3A" strokeWidth="1" fill="none"/></svg>
+                      </div>
+                      {/* 9: Castle */}
+                      <div className="rounded-lg aspect-[3/4] flex items-center justify-center" style={{ background: '#FAFAF8', border: `1px solid ${dark.border}`, animation: `heroFadeIn 0.4s ease-out 1.1s both` }}>
+                        <svg width="32" height="42" viewBox="0 0 32 42" fill="none"><rect x="6" y="18" width="20" height="18" rx="1" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><rect x="8" y="12" width="4" height="6" stroke="#2D2D3A" strokeWidth="1" fill="none"/><rect x="20" y="12" width="4" height="6" stroke="#2D2D3A" strokeWidth="1" fill="none"/><rect x="14" y="10" width="4" height="8" stroke="#2D2D3A" strokeWidth="1" fill="none"/><path d="M10 12L10 8M12 12L12 9" stroke="#2D2D3A" strokeWidth="0.8"/><path d="M22 12L22 8M20 12L20 9" stroke="#2D2D3A" strokeWidth="0.8"/><path d="M16 10L16 6" stroke="#2D2D3A" strokeWidth="0.8"/><rect x="13" y="28" width="6" height="8" rx="3" stroke="#2D2D3A" strokeWidth="1" fill="none"/><rect x="9" y="24" width="3" height="3" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/><rect x="20" y="24" width="3" height="3" stroke="#2D2D3A" strokeWidth="0.8" fill="none"/></svg>
+                      </div>
+                      {/* 10: Hearts */}
+                      <div className="rounded-lg aspect-[3/4] flex items-center justify-center" style={{ background: '#FAFAF8', border: `1px solid ${dark.border}`, animation: `heroFadeIn 0.4s ease-out 1.2s both` }}>
+                        <svg width="32" height="42" viewBox="0 0 32 42" fill="none"><path d="M16 32Q6 22 6 16Q6 10 11 10Q16 10 16 16Q16 10 21 10Q26 10 26 16Q26 22 16 32Z" stroke="#2D2D3A" strokeWidth="1.2" fill="none"/><path d="M16 14Q12 10 10 12" stroke="#2D2D3A" strokeWidth="0.6" fill="none"/><path d="M16 14Q20 10 22 12" stroke="#2D2D3A" strokeWidth="0.6" fill="none"/></svg>
+                      </div>
                     </div>
-                    <p className="text-[10px] mt-2 text-center" style={{ color: dark.accent }}>+20 more pages generating...</p>
                   </div>
                 </div>
 
@@ -250,10 +272,12 @@ export function Hero() {
 
               </div>
 
-              {/* Bottom label */}
+              {/* Bottom label — changes per step */}
               <div className="px-5 py-3 flex items-center justify-center border-t" style={{ background: dark.surface, borderColor: dark.border }}>
-                <span className="font-display text-xs px-4 py-1.5 rounded-full" style={{ color: dark.accent, background: `${dark.accent}18`, border: `1px solid ${dark.accent}30` }}>
-                  Coloring Book Workflow
+                <span className="font-display text-xs px-4 py-1.5 rounded-full transition-all duration-500" style={{ color: dark.accent, background: `${dark.accent}18`, border: `1px solid ${dark.accent}30` }}>
+                  {stepIdx === 0 && '+20 more pages generating...'}
+                  {stepIdx === 1 && 'Auto-Layout & Assemble'}
+                  {stepIdx === 2 && 'Coloring Book Workflow'}
                 </span>
               </div>
             </div>
