@@ -18,21 +18,20 @@ export default function AboutPage() {
 
           <div className="prose prose-lg max-w-none">
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              PixCraftX is an AI-powered coloring page and merch creator that helps parents, teachers,
-              and creators bring their imagination to life — then turn it into real products.
+              PixCraftX is an AI-powered coloring book engine built for KDP publishers, Etsy sellers,
+              and creators who want to build coloring book collections that sell.
             </p>
 
             <h2 className="font-display text-2xl mt-8 mb-4">Our Mission</h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              We believe creativity should be accessible to everyone. Whether you&apos;re a parent
-              looking for that perfect dinosaur coloring page your child dreamed up, a teacher
-              creating themed worksheets, or a KDP seller building coloring books — PixCraftX
-              makes it fast, easy, and affordable.
+              We believe every creator should be able to build a profitable coloring book business. Whether you&apos;re a KDP publisher
+              scaling your catalog, an Etsy seller launching your first coloring page shop, or a designer
+              building themed collections — PixCraftX makes it fast, easy, and affordable.
             </p>
 
             <h2 className="font-display text-2xl mt-8 mb-4">How It Works</h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Using advanced AI, PixCraftX transforms your text descriptions into clean line art, applies colors and art styles with one click, then turns your colored art into real products — fridge magnets, stickers, and canvas prints. Our models are optimized for coloring pages with clear outlines and print-quality resolution, and our merch generator produces transparent PNGs ready for production.
+              Using advanced AI, PixCraftX transforms your text descriptions into clean line art coloring pages, batch-generates entire collections, auto-assembles them into books with correct KDP formatting, and exports print-ready 300 DPI PDFs. Every plan includes a commercial license so you can sell on Amazon KDP, Etsy, or anywhere else.
             </p>
 
             <h2 className="font-display text-2xl mt-8 mb-4">Made With Love</h2>

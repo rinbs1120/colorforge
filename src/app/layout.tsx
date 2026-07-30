@@ -10,26 +10,28 @@ const GA_MEASUREMENT_ID = 'G-4R54BPGTYY';
 export const metadata: Metadata = {
   verification: { other: { "p:domain_verify": "88a5b8cbaf6eb49fa1682d7ee76f0525" } },
   title: {
-    default: 'PixCraftX — Color It, Then Make It Yours',
+    default: 'PixCraftX — AI Coloring Book Engine for KDP & Etsy',
     template: '%s | PixCraftX',
   },
   description:
-    'AI-powered coloring page and merch creator. Generate line art, color with AI styles, then turn it into fridge magnets, stickers, and canvas prints.',
+    'AI-powered coloring book generator for KDP & Etsy sellers. Batch create pages, auto-layout, export print-ready PDF — commercial license included.',
   keywords: [
     'coloring pages',
     'AI coloring',
-    'fridge magnet maker',
-    'sticker maker',
+    'KDP coloring book',
+    'Etsy coloring pages',
+    'coloring book PDF',
     'printable coloring pages',
     'coloring page generator',
-    'merch creator',
+    'batch coloring page generator',
+    'print-ready coloring book',
   ],
   authors: [{ name: 'PixCraftX Team', url: 'https://pixcraftx.com' }],
   generator: 'PixCraftX',
   openGraph: {
-    title: 'PixCraftX — Color It, Then Make It Yours',
+    title: 'PixCraftX — AI Coloring Book Engine for KDP & Etsy',
     description:
-      'AI-powered coloring page and merch creator. Generate line art, color it, then turn it into fridge magnets, stickers, and canvas prints.',
+      'AI-powered coloring book generator for KDP & Etsy sellers. Batch create pages, auto-layout, export print-ready PDF — commercial license included.',
     url: 'https://pixcraftx.com',
     siteName: 'PixCraftX',
     locale: 'en_US',
@@ -37,9 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PixCraftX — Color It, Then Make It Yours',
+    title: 'PixCraftX — AI Coloring Book Engine for KDP & Etsy',
     description:
-      'AI-powered coloring page and merch creator. Generate line art, color it, then turn it into fridge magnets, stickers, and canvas prints.',
+      'AI-powered coloring book generator for KDP & Etsy sellers. Batch create pages, auto-layout, export print-ready PDF — commercial license included.',
   },
   robots: {
     index: true,

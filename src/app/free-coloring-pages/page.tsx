@@ -29,7 +29,7 @@ export default function FreeColoringPages() {
             Browse Free Coloring Pages
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-            Explore free printable coloring pages featuring Oriental themes — from soaring dragons to moonlit pagodas. Color them, then turn into merch!
+            Explore free printable coloring pages featuring Oriental themes — from soaring dragons to moonlit pagodas. Try these samples, then create your own coloring book!
           </p>
           <a
             href="/generate"

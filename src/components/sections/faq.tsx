@@ -13,12 +13,12 @@ const faqs = [
   {
     question: 'What styles are available?',
     answer:
-      'Three color palettes (Pastel, Vivid, Muted) for natural coloring, plus four art styles (Chubby Doodle, Pop Art, City Pop, Fridge Magnet) for creative transformations.',
+      'Line art styles optimized for coloring books — including Chubby Doodle, Clean Outline, and Detailed Ink. Each style produces pages with clear lines and print-quality resolution.',
   },
   {
-    question: 'What merch can I make?',
+    question: 'What formats can I export?',
     answer:
-      'After coloring your line art, turn it into fridge magnets (2 cr), stickers (2 cr, transparent PNG), or canvas prints (free). Each product is generated as a high-resolution image ready for production.',
+      'Export your coloring pages as high-resolution 300 DPI PNG files for individual downloads, or as print-ready PDFs with correct KDP trim sizes and bleed included. Pro and Business plans support full book PDF export with auto-layout and multiple trim size options.',
   },
   {
     question: 'Can I upload a reference image?',
@@ -28,17 +28,17 @@ const faqs = [
   {
     question: 'Can I use the images commercially?',
     answer:
-      'Pro and Business plans include a commercial license, so you can use generated images for products, prints, and other commercial projects. Free and Starter plans are for personal, non-commercial use only.',
+      'Every plan includes a commercial license, so you can use generated images for products, prints, and sell on Amazon KDP, Etsy, and other platforms. Please review our Terms of Service for full details.',
   },
   {
     question: 'How many pages can I generate for free?',
     answer:
-      'Free accounts get 2 credits per month. Each text-generated page costs 1 credit, and reference image generation costs 5 credits (first one is free!). No credit card required to start.',
+      'Free accounts get 5 credits per month with a commercial license. Each text-generated page costs 1 credit, and reference image generation costs 5 credits (first one is free!). No credit card required to start.',
   },
   {
     question: 'What image formats are available for download?',
     answer:
-      'All pages can be downloaded as high-resolution PNG files. Pro and Business plans also support PDF export and transparent PNG downloads for merch products.',
+      'All pages can be downloaded as high-resolution 300 DPI PNG files. Starter and above support PDF export. Pro and Business plans include full book PDF with auto-layout and multiple trim sizes.',
   },
   {
     question: 'Do free downloads have a watermark?',
@@ -48,7 +48,7 @@ const faqs = [
   {
     question: 'What AI technology powers PixCraftX?',
     answer:
-      'PixCraftX uses advanced AI image generation and editing models to transform your text descriptions into clean line art, apply colors and art styles, and generate merch product images. All generated content is AI-created and should be reviewed before use.',
+      'PixCraftX uses advanced AI image generation and editing models to batch generate coloring pages and export print-ready PDFs. All generated content is AI-created and should be reviewed before use.',
   },
 ];
 

@@ -10,32 +10,32 @@ const faqs = [
   {
     question: 'What is PixCraftX?',
     answer:
-      'PixCraftX is an AI-powered coloring page and merch creator. Generate stunning line art from any idea, color it with AI styles, then turn it into fridge magnets, stickers, and canvas prints. Designed for kids, parents, teachers, and creators.',
+      'PixCraftX is an AI-powered coloring book engine for KDP and Etsy sellers. Batch generate coloring pages, auto-layout into books, and export print-ready PDFs with commercial license included.',
   },
   {
     question: 'How does it work?',
     answer:
-      'Three simple steps: (1) Generate — type a description and AI creates clean line art. (2) Color & Merch — apply color palettes or art styles like Pop Art and City Pop with one click. (3) Turn into Merch — transform your colored art into fridge magnets, stickers, or canvas prints, ready to download.',
+      'Three steps: (1) Pick a Theme — describe your coloring book topic. (2) AI Batch Generate — create 30+ pages at once with consistent style. (3) Export & Sell — auto-layout into KDP-ready PDF and upload to Amazon or Etsy.',
   },
   {
     question: 'Is it free?',
     answer:
-      'Yes! PixCraftX offers a free plan that includes 2 credits per month. If you need more, our Starter, Pro and Business plans provide additional monthly credits and exclusive features like transparent PNG downloads and merch products. Visit our pricing page for details.',
+      'Yes! PixCraftX offers a free plan that includes 5 credits per month with a commercial license. If you need more, our Starter, Pro and Business plans provide additional monthly credits and exclusive features like batch generation and PDF export with auto-layout. Visit our pricing page for details.',
   },
   {
     question: 'What styles are available?',
     answer:
-      'Three color palettes (Pastel, Vivid, Muted) for natural coloring, plus four art styles (Chubby Doodle, Pop Art, City Pop, Fridge Magnet) for creative transformations. Each style transforms your line art with a unique visual personality.',
+      'Line art styles optimized for coloring books — including Chubby Doodle, Clean Outline, and Detailed Ink. Each style produces pages with clear lines and print-quality resolution, perfect for KDP and Etsy.',
   },
   {
-    question: 'What merch products can I make?',
+    question: 'What formats can I export?',
     answer:
-      'Currently we support three products: Canvas Prints (direct download, free), Fridge Magnets (2 credits, with white background removed), and Stickers (2 credits, transparent PNG). All product images are high-resolution and ready for production.',
+      'Export your coloring pages as high-resolution 300 DPI PNG files for individual downloads, or as print-ready PDFs with correct KDP trim sizes and bleed included. Pro and Business plans support full book PDF export with auto-layout and multiple trim size options.',
   },
   {
     question: 'Can I use generated images commercially?',
     answer:
-      'Pro and Business plan subscribers are granted a commercial license to use generated images for commercial purposes. Starter plan and Free plan users are limited to personal, non-commercial use only. Please review our Terms of Service for full details.',
+      'Every plan includes a commercial license to use generated images for commercial purposes, including selling on Amazon KDP, Etsy, and other platforms. Please review our Terms of Service for full details.',
   },
   {
     question: 'Is it safe for children?',
@@ -60,7 +60,7 @@ const faqs = [
   {
     question: 'Who made this?',
     answer:
-      'PixCraftX is built by the PixCraftX team — a small group of designers and engineers passionate about making creativity accessible to everyone through AI. Visit pixcraftx.com to learn more.',
+      'PixCraftX is built by the PixCraftX team — a small group of designers and engineers passionate about helping creators build profitable coloring book businesses with AI. Visit pixcraftx.com to learn more.',
   },
 ];
 

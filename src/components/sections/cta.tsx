@@ -9,7 +9,7 @@ export function CTA() {
           Ready to Create Something Unique?
         </h2>
         <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-          Generate line art, color it with AI styles, then turn it into fridge magnets, stickers, and prints.
+          Create coloring books that sell. Batch generate pages, auto-layout, and export print-ready PDF for KDP & Etsy.
         </p>
         <Link
           href="/generate"

@@ -80,7 +80,7 @@ export function ColoringGallery() {
           Free Coloring Pages
         </h2>
         <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-          Cottage gardens, woodland animals, lavender fields & more — free printable line art ready to color and turn into merch.
+          Cottage gardens, woodland animals, lavender fields & more — free printable line art. Try these samples, then create your own collection!
         </p>
         <a
           href="/generate"
