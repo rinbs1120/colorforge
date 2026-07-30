@@ -7,6 +7,22 @@ import { Sparkles, ArrowRight, BookOpen, FileText, Check } from 'lucide-react';
 const BOOK_STEPS = 3;
 const STEP_DURATIONS = [3500, 3500, 4000];
 
+/* Inline keyframes — avoids dependency on globals.css bundling */
+const HERO_KEYFRAMES = `
+@keyframes heroBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@keyframes heroFadeIn {
+  0% { opacity: 0; transform: scale(0.96); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes heroTransformSlideIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+`;
+
 /* Dark theme colors */
 const dark = {
   bg: '#1A1A2E',
@@ -32,6 +48,8 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
+      {/* Inject keyframes inline to guarantee they load */}
+      <style dangerouslySetInnerHTML={{ __html: HERO_KEYFRAMES }} />
       <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full opacity-[0.12] pointer-events-none" style={{ background: 'radial-gradient(circle, #FFB800 0%, transparent 70%)' }} />
 
       <div className="container mx-auto px-4 md:px-6 max-w-[1440px]">
