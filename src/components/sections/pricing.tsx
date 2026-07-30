@@ -29,13 +29,13 @@ const PLAN_RANK: Record<string, number> = {
 
 const allFeatures = [
   { key: 'pages', label: 'Credits per month' },
-  { key: 'styles', label: 'All styles' },
-  { key: 'reference', label: 'Reference image upload' },
-  { key: 'png', label: 'PNG download' },
-  { key: 'pdf', label: 'PDF export' },
-  { key: 'watermark', label: 'No watermark' },
   { key: 'commercial', label: 'Commercial license' },
-  { key: 'merch', label: 'Merch products (magnet, sticker, print)' },
+  { key: 'styles', label: 'All styles' },
+  { key: 'batch', label: 'Batch generation (5+ pages)' },
+  { key: 'pdf', label: 'Print-ready PDF export' },
+  { key: 'bookpdf', label: 'Full book PDF (auto-layout)' },
+  { key: 'sizes', label: 'Multiple sizes (8.5×11″, 8.5×8.5″, 6×9″)' },
+  { key: 'reference', label: 'Reference image upload' },
   { key: 'transparent', label: 'Transparent PNG download' },
 ] as const;
 
@@ -51,7 +51,7 @@ const plans = [
     originalPrice: null,
     priceNote: '/mo',
     pageLabel: '5 credits',
-    features: { pages: true, styles: true, reference: false, png: true, pdf: false, watermark: false, commercial: true, merch: false, transparent: false } as Record<FeatureKey, boolean>,
+    features: { pages: true, commercial: true, styles: true, batch: false, pdf: false, bookpdf: false, sizes: false, reference: false, transparent: false } as Record<FeatureKey, boolean>,
     buttonText: 'Get Started',
     buttonStyle: 'outline' as const,
     href: '/generate',
@@ -60,11 +60,12 @@ const plans = [
   {
     name: 'Starter',
     key: 'starter',
-    price: 4.99,
-    originalPrice: isLaunchPromo ? 6.99 : null,
+    price: 9.99,
+    originalPrice: isLaunchPromo ? 14.99 : null,
     priceNote: '/mo',
     pageLabel: '100 credits',
-    features: { pages: true, styles: true, reference: true, png: true, pdf: true, watermark: true, commercial: true, merch: true, transparent: false } as Record<FeatureKey, boolean>,
+    popular: false,
+    features: { pages: true, commercial: true, styles: true, batch: true, pdf: true, bookpdf: false, sizes: false, reference: true, transparent: false } as Record<FeatureKey, boolean>,
     buttonText: 'Subscribe',
     buttonStyle: 'filled' as const,
     href: null,
@@ -73,12 +74,12 @@ const plans = [
   {
     name: 'Pro',
     key: 'pro',
-    price: 9.99,
-    originalPrice: isLaunchPromo ? 12.99 : null,
+    price: 19.99,
+    originalPrice: isLaunchPromo ? 29.99 : null,
     priceNote: '/mo',
     popular: true,
     pageLabel: '500 credits',
-    features: { pages: true, styles: true, reference: true, png: true, pdf: true, watermark: true, commercial: true, merch: true, transparent: true } as Record<FeatureKey, boolean>,
+    features: { pages: true, commercial: true, styles: true, batch: true, pdf: true, bookpdf: true, sizes: true, reference: true, transparent: true } as Record<FeatureKey, boolean>,
     buttonText: 'Subscribe',
     buttonStyle: 'gradient' as const,
     href: null,
@@ -87,11 +88,11 @@ const plans = [
   {
     name: 'Business',
     key: 'business',
-    price: 19.99,
-    originalPrice: isLaunchPromo ? 24.99 : null,
+    price: 39.99,
+    originalPrice: isLaunchPromo ? 59.99 : null,
     priceNote: '/mo',
-    pageLabel: '2000 credits',
-    features: { pages: true, styles: true, reference: true, png: true, pdf: true, watermark: true, commercial: true, merch: true, transparent: true } as Record<FeatureKey, boolean>,
+    pageLabel: 'Unlimited credits',
+    features: { pages: true, commercial: true, styles: true, batch: true, pdf: true, bookpdf: true, sizes: true, reference: true, transparent: true } as Record<FeatureKey, boolean>,
     buttonText: 'Subscribe',
     buttonStyle: 'filled' as const,
     href: null,
@@ -297,7 +298,7 @@ export function Pricing() {
 
         <div className="mt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            💡 Generate: <strong>1 cr</strong> · Batch 5 pages: <strong>4 cr</strong> · Batch 20 pages: <strong>15 cr</strong> · PDF Export: <strong>5 cr</strong> · Reference: <strong>3 cr</strong>
+            💡 1 page = <strong>1 cr</strong> · Batch 5 pages = <strong>4 cr</strong> · Batch 20 pages = <strong>15 cr</strong> · Full book PDF = <strong>5 cr</strong> · Reference image = <strong>3 cr</strong>
           </p>
         </div>
       </div>
