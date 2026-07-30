@@ -235,6 +235,7 @@ body {
   100% {
     transform: translateX(100%);
   }
+}
 
 /* 3D product rotation for Hero showcase */
 @keyframes hero3DRotate {
